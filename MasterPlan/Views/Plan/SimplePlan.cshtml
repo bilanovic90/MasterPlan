@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MasterPlan.Models.SimplePlanModel
+<head>
+    <title>Master Plan</title>
+    <script type="text/javascript" src="../../Scripts/tinyMCE/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: "save",
+            toolbar: "save | undo redo | styleselect | bold italic | link image | font"
+        });
+        parent.opener.tinyMCE.execInstanceCommand('foo', 'mceInsertContent', false, '<b>Hy Now</b>');
+    </script>
+</head>
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h2>Simple Plan</h2>
+        </hgroup>
+        <br />
+        <h4>
+            This is a simple plan for your organization. Use the site navigation below to choose a section of you plan that you want to edit.
+        </h4>
+    </div>
+</section>
+<table>
+    <tr>
+        <td class="menu_td">
+            <ol class="round">
+                <li class="one">
+                    <h4>Title</h4>
+                    @Html.ActionLink("Title", "SimplePlan", "Plan", new { id = 0 }, null) <br />
+                </li>
+                <li class="two">
+                    <h4>Business Profile</h4>
+                    @Html.ActionLink("Business Overview", "SimplePlan", "Plan", new { id = 1 }, null) <br />
+                    @Html.ActionLink("Unique Features", "SimplePlan", "Plan", new { id = 2 }, null) <br />
+                    @Html.ActionLink("Sales Overview", "SimplePlan", "Plan", new { id = 3 }, null) <br />
+                    @Html.ActionLink("Sales Forecast", "SimplePlan", "Plan", new { id = 4 }, null) <br />
+                    @Html.ActionLink("Proof of Sales", "SimplePlan", "Plan", new { id = 5 }, null) <br />
+                </li>
+                <li class="three">
+                    <h4>Competitive Profile</h4>
+                    @Html.ActionLink("Market Size", "SimplePlan", "Plan", new { id = 6 }, null) <br />
+                    @Html.ActionLink("Market Segment", "SimplePlan", "Plan", new { id = 7 }, null) <br />
+                    @Html.ActionLink("Market Trends", "SimplePlan", "Plan", new { id = 8 }, null) <br />
+                    @Html.ActionLink("Competitive Analysis", "SimplePlan", "Plan", new { id = 9 }, null) <br />
+                </li>
+                <li class="four">
+                    <h4>Strategic Direction</h4>
+                    @Html.ActionLink("SWOT Analysis", "SimplePlan", "Plan", new { id = 10 }, null) <br />
+                    @Html.ActionLink("Mission Statement", "SimplePlan", "Plan", new { id = 11 }, null) <br />
+                    @Html.ActionLink("Target Market", "SimplePlan", "Plan", new { id = 12 }, null) <br />
+                    @Html.ActionLink("Positioning", "SimplePlan", "Plan", new { id = 13 }, null) <br />
+                    @Html.ActionLink("Strategy Highlights", "SimplePlan", "Plan", new { id = 14 }, null) <br />
+                    @Html.ActionLink("Investor Information", "SimplePlan", "Plan", new { id = 15 }, null) <br />
+                </li>
+                <li class="five">
+                    <h4>The Actual Plan</h4>
+                    @Html.ActionLink("Business Objectives", "SimplePlan", "Plan", new { id = 16 }, null) <br />
+                    @Html.ActionLink("Marketing Plan", "SimplePlan", "Plan", new { id = 17 }, null) <br />
+                    @Html.ActionLink("Financial Plan", "SimplePlan", "Plan", new { id = 18 }, null) <br />
+                    @Html.ActionLink("Organisational Plan", "SimplePlan", "Plan", new { id = 19 }, null) <br />
+                    @Html.ActionLink("Other Company Plans", "SimplePlan", "Plan", new { id = 20 }, null) <br />
+                </li>
+                <li class="six">
+                    <h4>Financials</h4>
+                    @Html.ActionLink("Financials", "SimplePlan", "Plan", new { id = 21 }, null)
+                </li>
+            </ol>
+            </td>
+        <td class="textbox_td">
+            @if (ViewData["TextEditor"] != null)
+            {
+                <h3>@ViewBag.Title</h3>
+                <h4>@ViewBag.Message</h4>
+                <br/>
+                using (Html.BeginForm("SimplePlan", "Plan", FormMethod.Post, null))
+                { 
+                    <textarea name="textArea" style="width:100%; height:400px">
+                        @Model.Title                                                       
+                    </textarea>
+                }
+            }
+        </td>
+        </tr>
+    </table>

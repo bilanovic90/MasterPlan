@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    <h1>MASTER PLANER</h1>
+    <p class="lead">Master Planer is design to assist you in the creation of your business plan(s). You can create new plan, or upload and review your existing plan.</p>
+    <p><a href="http://JosephMarando.com" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create new plan</h2>
+        <p>
+            You can choose between seven different plans. Each plan has it's own unique features for you to fill. Choose the plan that's best suited for your needs and let the planing begin.
+        </p>
+        <p>
+            <a class="btn btn-default" href="@Url.Action("PlanBrowser", "Home")">Create new plan &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Upload and review existing plan</h2>
+        <p>
+            If you already used Master Plan and want to review existing plan, upload it here, review or change it.
+        </p>
+        <p>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Open existing plan &raquo;</a>
+        </p>
+    </div>
+</div>
